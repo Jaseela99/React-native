@@ -11,7 +11,8 @@ import {
   // Alert,
   // Platform
 } from "react-native";
-
+import WelcomeScreen from "./app/screens/WelcomeScreen";
+import HomeScreen from "./app/screens/HomeScreen";
 //import { useDimensions,useDeviceOrientation } from "@react-native-community/hooks";
 
 export default function App() {
@@ -27,7 +28,8 @@ export default function App() {
   //const handlePress = () => {
     //alert("text pressed");
   //};
-  return (
+  return <HomeScreen/>
+   /* 
 
     //flexbox
 <View style={{backgroundColor:"white",
@@ -50,25 +52,25 @@ height:100,
 <View style={{backgroundColor:"tomato",
 //flex:1
 width:100,
+//left:20,//position is relative by default without changing layout
+//position:"absolute",//changes the layout
 height:100}}/>
 <View style={{backgroundColor:"dodgerblue",
 //flex:1
 width:100,
 height:100,
 }}/>
-<View style={{backgroundColor:"grey",
-//flex:1
+ <View style={{backgroundColor:"grey",
 width:100,
 height:100,
 }}/>
 <View style={{backgroundColor:"greenyellow",
-//flex:1
 width:100,
 height:100,
-}}/>
+}}/> 
 
 
-  </View>
+  </View> */
     /* View is designed to be nested inside other views and can have 0 to many children of any type.
     style can be an arry which container more than one stylesheets*/
 
@@ -139,7 +141,7 @@ height:100,
       <StatusBar style="auto" /> */
     //</View>
     
-  );
+  
 }
 //creates a stylesheet with reference to an obj,which validates the properties
 // const styles = StyleSheet.create({
