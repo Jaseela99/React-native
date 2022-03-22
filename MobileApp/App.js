@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View,Image } from "react-native";
+import { StyleSheet, Text, View,Image ,TouchableHighlight,TouchableNativeFeedback } from "react-native";
 
 export default function App() {
 //we use safeareaview to veiw away from the notch of the phone
@@ -14,11 +14,13 @@ return (
      {/*  A React component for displaying text.Text supports nesting, styling, and touch handling. */}
       <Text onPress={handlePress}>Hey Jaseela here!!</Text>
       <Text numberOfLines={1}> how u guys doing?? hope you are good..it is summer here..i hate summers..</Text>
-    {/*to add image from folder
-       <Image source={require("./assets/icon.png")}/> */}
+    {/* to add image from folder
+    <Image source={require("./assets/icon.png")}/> */}
 
        {/* to add network image */}
+<TouchableHighlight onPress={()=>{console.log("image tapped")}}>
 
+{/* image components doesnt have on press so we use touchables */}
        <Image 
        resizeMethod="resize"
        resizeMode="repeat"
@@ -28,6 +30,16 @@ return (
          width:200,
          height:300,
          uri:'https://picsum.photos/200/300'}}/>
+</TouchableHighlight>
+
+<TouchableNativeFeedback onPress={()=>{console.log("tapped")}}>
+<View style={{
+width:100,
+height:100,
+backgroundColor:"aliceblue"}}>
+  
+</View>
+</TouchableNativeFeedback>
       <StatusBar style="auto" />
     </View>
   );
