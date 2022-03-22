@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View,Image } from "react-native";
 
 export default function App() {
 //we use safeareaview to veiw away from the notch of the phone
@@ -14,6 +14,20 @@ return (
      {/*  A React component for displaying text.Text supports nesting, styling, and touch handling. */}
       <Text onPress={handlePress}>Hey Jaseela here!!</Text>
       <Text numberOfLines={1}> how u guys doing?? hope you are good..it is summer here..i hate summers..</Text>
+    {/*to add image from folder
+       <Image source={require("./assets/icon.png")}/> */}
+
+       {/* to add network image */}
+
+       <Image 
+       resizeMethod="resize"
+       resizeMode="repeat"
+       blurRadius={1}
+       fadeDuration={500}
+       source={{
+         width:200,
+         height:300,
+         uri:'https://picsum.photos/200/300'}}/>
       <StatusBar style="auto" />
     </View>
   );
