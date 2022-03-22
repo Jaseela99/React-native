@@ -1,5 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import {
+ // Dimensions,
   StyleSheet,
   Text,
   View,
@@ -7,19 +8,29 @@ import {
   TouchableHighlight,
   TouchableNativeFeedback,
   Button,
-  Alert
+  Alert,
+  Platform
 } from "react-native";
 
+import { useDimensions,useDeviceOrientation } from "@react-native-community/hooks";
+
 export default function App() {
-  //we use safeareaview to veiw away from the notch of the phone
+//if we have diff orientations we use useDimensions
+ console.log(useDimensions())
+const {landscape} = useDeviceOrientation()
+
+  //to get dimensions of application device
+  //console.log(Dimensions.get("screen"))
+
 
   //handlepress
   const handlePress = () => {
     alert("text pressed");
   };
   return (
-    /* View is designed to be nested inside other views and can have 0 to many children of any type. */
-    <View style={styles.container}>
+    /* View is designed to be nested inside other views and can have 0 to many children of any type.
+    style can be an arry which container more than one stylesheets*/
+    <View style={[styles.container,containerStyle]}>
       {/*  A React component for displaying text.Text supports nesting, styling, and touch handling. */}
       <Text onPress={handlePress}>Hey Jaseela here!!</Text>
       <Text numberOfLines={1}>
@@ -64,9 +75,10 @@ export default function App() {
           console.log("tapped");
         }}
       >
+       {/*  inline styling */}
         <View
           style={{
-            width: 100,
+            width: 150,
             height: 100,
             backgroundColor: "aliceblue",
           }}
@@ -76,12 +88,16 @@ export default function App() {
     </View>
   );
 }
-
+//creates a stylesheet with reference to an obj,which validates the properties
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "pink",
-    alignItems: "center",
-    justifyContent: "center",
+    backgroundColor:"pink",
+    height:"100%",
+    weight:landscape? "100%":"30%",
+  //  Returns an object which contains all available common and specific constants related to the platform.
+    paddingTop:Platform.OS==="android" ? StatusBar.currentHeight:0
   },
 });
+//it over writes the bg color in styles.container
+const containerStyle ={backgroundColor:"orange"}
